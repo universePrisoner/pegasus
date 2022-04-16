@@ -1,0 +1,31 @@
+@startuml
+
+' hide the spot
+hide circle
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+
+entity "Users" as users {
+  *id : bigint <<generated>>
+  --
+  first_name : text
+  last_name : text
+  user_name : text
+  is_active: boolean
+  email_base: text
+  email_base_approved: boolean
+}
+
+entity "Tasks" as tasks {
+  *id : integer <<generated>>
+  *user_id: bigint
+  --
+  title: text
+  description: text
+  is_archived: boolean
+}
+
+
+
+@enduml
